@@ -1,0 +1,4 @@
+node_modules/
+package-lock.json
+coverage
+coverage/Chrome 79.0.3945 (Mac OS X 10.14.6)/index.html
