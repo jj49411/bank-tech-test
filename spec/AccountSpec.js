@@ -13,5 +13,10 @@ describe('Account', function() {
     account.deposit(100);
     expect(account.deposit(400)).toBe(500);
   })
+
+  it('can withdraw money from an account', function() {
+    account.deposit(1000);
+    expect(account.withdraw(400)).toBe(600);
+  });
 });
 
