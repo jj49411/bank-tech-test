@@ -7,14 +7,10 @@ describe('Statement', function() {
     spyOn(account, 'transactions');
   });
 
-  it('should display the statement', function() {
-    var statement = new Statement(transactions);
-    expect(statement.display()).toContain('14/02/2020')
-  });
-
   it('should display the header', function() {
     var statement = new Statement(transactions);
     expect(statement.display()).toContain('date || credit || debit || balance')
   });
+
 }); 
 

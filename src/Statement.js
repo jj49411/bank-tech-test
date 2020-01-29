@@ -13,3 +13,7 @@ Statement.prototype.display = function() {
     }
   }).join('')
 };
+
+Statement.prototype.log = function(arr) {
+  this.transactions.push(arr);
+};

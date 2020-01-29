@@ -1,19 +1,19 @@
 function Account() {
   this.balance = 0;
-  this.transactions = [];
+  this.transactions = new Statement;
 };
 
 Account.prototype.deposit = function(amount) {
   var transaction = new Transaction;
   var date = new DateFormat;
   this.balance += transaction.add(amount);
-  this.transactions.push([date.dateFormat(), amount, this.balance]);
+  this.transactions.log([date.dateFormat(), amount, this.balance]);
 };
 
 Account.prototype.withdraw = function(amount) {
   var transaction = new Transaction;
   var date = new DateFormat;
   this.balance += transaction.remove(amount);
-  this.transactions.push([date.dateFormat(), -amount, this.balance]);
+  this.transactions.log([date.dateFormat(), -amount, this.balance]);
 };
 
