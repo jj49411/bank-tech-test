@@ -12,6 +12,8 @@ Account.prototype.deposit = function(amount) {
 
 Account.prototype.withdraw = function(amount) {
   var transaction = new Transaction;
+  var date = new DateFormat;
   this.balance += transaction.remove(amount);
+  this.transactions.push([date.dateFormat(), -amount, this.balance]);
 };
 
