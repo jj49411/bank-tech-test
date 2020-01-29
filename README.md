@@ -23,6 +23,7 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
+
 ### How to design the solution
 
 - Started with planning the unit specifications
@@ -38,6 +39,8 @@ date || credit || debit || balance
   - Using jasmine testing framework
   - After trying different tools for testing coverage (they might interfering with one another), I used Karma to see the test coverage
 
+
+### Domain Modelling
 
 **Transaction class**
 
@@ -67,31 +70,6 @@ date || credit || debit || balance
 |log | push array to transactions|
 
 
-### To install and run the code:
-
-1. Fork the repo
-2. Run `npm install`
-3. Run `open SpecRunner.html` 
-4. Open the console (Ctrl+Option+J)
-
-### To interact with the code:
-
-1. Start with `var account = new Account;`
-2. To make a deposit run `account.deposit(amount);` 
-3. To make a withdrawal run `account.withdraw(amount);` 
-4. To print out the statement run `account.transactions.display();`
-
-See the example:
-
-![console](img/console.png)
-
-
-### To run the test:
-
-1. Run `open SpecRunner.html` 
-2. Run `npm test`
-
-
 ### User stories
 -------
 
@@ -109,6 +87,35 @@ So I can check my transaction history and account balance
 I would like to print out the statement
 
 ```
+
+
+### To install and run the code:
+
+1. Fork the repo
+2. Run `npm install`
+3. Run `open SpecRunner.html` 
+4. Open the console (Ctrl+Option+J)
+
+
+### To interact with the code:
+
+1. Start with `var account = new Account;`
+2. To make a deposit run `account.deposit(amount);` 
+3. To make a withdrawal run `account.withdraw(amount);` 
+4. To print out the statement run `account.transactions.display();`
+
+See the example:
+
+![console](img/console.png)
+
+
+
+### To run the test:
+
+1. Run `open SpecRunner.html` 
+2. Run `npm test`
+
+
 
 ### Test results and test coverage
 
