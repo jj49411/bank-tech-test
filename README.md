@@ -1,4 +1,4 @@
-# Bank
+# Bank Tech Test
 
 
 ### Requirements
@@ -7,17 +7,15 @@
 - Deposits, withdrawal.
 - Account statement (date, amount, balance) printing.
 - Data can be kept in memory (it doesn't need to be stored to a database or anything).
-- Acceptance criteria:
 
-Given a client makes a deposit of 1000 on 10-01-2012
 
-And a deposit of 2000 on 13-01-2012
+#### Acceptance criteria:
 
-And a withdrawal of 500 on 14-01-2012
-
-When she prints her bank statement
-
-Then she would see
+- Given a client makes a deposit of 1000 on 10-01-2012
+- And a deposit of 2000 on 13-01-2012
+- And a withdrawal of 500 on 14-01-2012
+- When she prints her bank statement
+- Then she would see
 ```
 date || credit || debit || balance
 14/01/2012 || || 500.00 || 2500.00
@@ -27,35 +25,46 @@ date || credit || debit || balance
 
 ### How to design the solution
 
-At first, I was thinking about when 
-
-Karma
+- Started with planning the unit specifications
+  - At first I put 'deposit' and 'withdraw' functions in `Bank` class, then I realised I needed to break it down to more classes to handle different responsibilities
+  - Added `Transaction` class to handle the amount of money; had simple functions 'add' 'remove'
+  - Then I needed a `account` class so users can deposit or withdraw money; having balance and transactions as properites
+  - Had a seperate class `DateFormat` for recording the date, also returning as DD/MM/YYYY
+  - Added `Statement` class for handling the 'display' function and 'log' function to push a single transaction to the properties
+  
+- Next planning the feature tests to draw out how users interact with the code 
+  
+- Testing approach
+  - Using jasmine testing framework
+  - After trying different tools for testing coverage (they might interfering with one another), I used Karma to see the test coverage
 
 
 **Transaction class**
 
 |Functions | Output|
 |------- | ---------|
-|add | to add the amount of money|
-|remove | Check|
+|add | the amount of transaction|
+|remove | the amount of transaction|
 
 **Account class**
 
 |Functions | Output|
 |------- | ---------|
-|check | Check|
+|deposit | add the amount to balance<br>push date, credit and balance to the history|
+|withdraw | remove the amount from balance<br>push date, debit and balance to the history|
 
 **DateFormat class**
 
 |Functions | Output|
 |------- | ---------|
-|check | Check|
+|dateFormat | date of today in the right format|
 
 **Statement class**
 
 |Functions | Output|
 |------- | ---------|
-|check | Check|
+|display | bank statement|
+|log | push array to transactions|
 
 
 ### To install and run the code:
@@ -101,16 +110,11 @@ I would like to print out the statement
 
 ```
 
-### Screen shots of the app
-
-
-
+### Test results and test coverage
 
 ![test results](img/results.png)
 
 ![test coverage](img/coverage.png)
 
-
-### The extensions I would add
 
  
