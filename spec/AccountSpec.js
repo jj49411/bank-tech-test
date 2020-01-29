@@ -24,12 +24,6 @@ describe('Account', function() {
       account.deposit(400);
       expect(account.balance).toBe(500);
     });
-
-    // it('should add a transaction when deposit money', function() {  
-    //   account.deposit(500);
-    //   console.log(account.transactions.statement)
-    //   expect(account.transactions).toEqual({ transactions: [ [ '14/02/2020', 500, 500 ] ] })
-    // });
   });
 
   describe('#withdraw', function(){
@@ -38,12 +32,6 @@ describe('Account', function() {
       account.withdraw(400);
       expect(account.balance).toBe(600);
     });
-
-    // it('should add a transaction when withdraw money', function() {
-    //   account.deposit(1000);
-    //   account.withdraw(200);
-    //   expect(account.transactions).toContain(['14/02/2020', -200, 800])
-    // });
   });
 });
 
