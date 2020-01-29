@@ -12,11 +12,11 @@ describe('DateFormat', function() {
   });
 
   it('should return the date of anotherday', function() {
-    anotherday = new Date(2020,1,04)
+    anotherday = new Date(2020,10,04)
     jasmine.clock().install();
     jasmine.clock().mockDate(anotherday);    
     var date = new DateFormat;
-    expect(date.dateFormat()).toEqual('04/02/2020')
+    expect(date.dateFormat()).toEqual('04/11/2020')
     jasmine.clock().uninstall();
   });
 }); 
