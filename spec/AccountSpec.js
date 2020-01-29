@@ -5,18 +5,25 @@ describe('Account', function() {
     account = new Account;
   });
 
-  it('can deposit money in an account', function() {
-    expect(account.deposit(300)).toBe(300);
+  describe('#deposit', function(){
+    it('can deposit money in an account', function() {
+      account.deposit(300)
+      expect(account.balance).toBe(300);
+    });
+
+    it('can add on value in the account when deposit money', function() {
+      account.deposit(100);
+      account.deposit(400)
+      expect(account.balance).toBe(500);
+    });
   });
 
-  it('can add on value in the account when deposit money', function() {
-    account.deposit(100);
-    expect(account.deposit(400)).toBe(500);
-  })
-
-  it('can withdraw money from an account', function() {
-    account.deposit(1000);
-    expect(account.withdraw(400)).toBe(600);
+  describe('#withdraw', function(){
+    it('can withdraw money from an account', function() {
+      account.deposit(1000);
+      account.withdraw(400)
+      expect(account.balance).toBe(600);
+    });
   });
 });
 
