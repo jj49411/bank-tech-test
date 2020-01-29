@@ -32,10 +32,14 @@ describe('Features', function() {
     expect(account.transactions.display()).toContain('14/02/2020')
   });
 
-  it('user can print the bank statement', function() {
+  it('user can print the bank statement after deposit', function() {
     account.deposit(amount);
     expect(account.transactions.display()).toContain('14/02/2020 || 500.00 || || 500.00')
   });
 
-
+  it('user can print the bank statement after withdraw', function() {
+    account.deposit(amount);
+    account.withdraw(200);
+    expect(account.transactions.display()).toContain('14/02/2020 || || 200.00 || 300.00')
+  });
 });
