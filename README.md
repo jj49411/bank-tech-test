@@ -20,6 +20,14 @@ I would like to withdraw money from my account
 
 ## Screen shots of the app
 
+
+![console](img/console.png)
+
+![test results](img/results.png)
+
+![test coverage](img/coverage.png)
+
+
 ## The extensions I would add
 
  
