@@ -1,9 +1,9 @@
-function Account(transaction = new Transaction, date = new DateFormat, statement = new Statement(this.transactions)) {
+function Account() {
   this._balance = 0;
   this.transactions = [];
-  this.transaction = transaction;
-  this.date = date;
-  this.statement = statement;
+  this.transaction = new Transaction;
+  this.date = new DateFormat;
+  this.statement = new Statement;
 };
 
 Account.prototype.deposit = function(amount) {

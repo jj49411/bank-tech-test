@@ -14,6 +14,11 @@ describe('Statement', function() {
     var statement = new Statement();
     expect(statement.display(transactions)).toContain('date || credit || debit || balance')
   });
+
+  it('should return null if transactions is empty', function() {
+    var statement = new Statement();
+    expect(statement.display([])).toEqual('date || credit || debit || balance\nnull')
+  });
 }); 
 
  
