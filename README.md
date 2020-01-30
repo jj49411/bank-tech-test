@@ -118,6 +118,9 @@ See the example:
 ESLint for code quality (linter)
 3. Run `npx eslint src/` `npx eslint spec/`
 
+Coverage report
+4. Run`open coverage_report/index.html`
+
 ### Test results and test coverage
 
 ![test results](img/results.png)
