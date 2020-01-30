@@ -1,4 +1,4 @@
-function Account(transaction = new Transaction, date = new DateFormat, statement = new Statement(transaction)) {
+function Account(transaction = new Transaction, date = new DateFormat, statement = new Statement(this.transactions)) {
   this.balance = 0;
   this.transactions = [];
   this.transaction = transaction;
@@ -14,11 +14,11 @@ Account.prototype.deposit = function(amount) {
 
 Account.prototype.withdraw = function(amount) {
   this.balance += this.transaction.remove(amount);
-  this.transactions.push([date.dateFormat(), -amount, this.balance]);  
+  this.transactions.push([this.date.dateFormat(), -amount, this.balance]);  
   return this.balance;
 };
 
 Account.prototype.bankStatement = function() {
-  return this.statement.display();
+  return this.statement.display(this.transactions);
 };
 
