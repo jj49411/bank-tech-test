@@ -31,8 +31,8 @@ describe('Account', function() {
 
     it('should return the error message when the balance is 0', function() {
       transaction.remove.and.returnValue(-200);  
-      account.withdraw(200)
-      console.log(account)
+      account.withdraw(200);
+      console.log(account);
       expect(account.withdraw(200)).toEqual('Error');
     });
   });
@@ -40,8 +40,8 @@ describe('Account', function() {
   describe('#statement', function() {
     it('should return the account statement', function() {
       account.deposit(1000);
-      statement.display.and.returnValue('14/02/2020 || 1000.00 || || 1000.00')
-      expect(account.bankStatement()).toContain('14/02/2020 || 1000.00 || || 1000.00')
+      statement.display.and.returnValue('14/02/2020 || 1000.00 || || 1000.00');
+      expect(account.bankStatement()).toContain('14/02/2020 || 1000.00 || || 1000.00');
     });
   });
 });

@@ -115,7 +115,8 @@ See the example:
 1. Run `open SpecRunner.html` 
 2. Run `npm test`
 
-
+ESLint for code quality (linter)
+3. Run `npx eslint src/` `npx eslint spec/`
 
 ### Test results and test coverage
 
