@@ -1,5 +1,5 @@
-function Statement() {
-  this.transactions = [];
+function Statement(transactions = []) {
+  this.transactions = transactions;
 };
 
 Statement.prototype.display = function() {
@@ -14,6 +14,3 @@ Statement.prototype.display = function() {
   }).join('')
 };
 
-Statement.prototype.log = function(arr) {
-  this.transactions.push(arr);
-};

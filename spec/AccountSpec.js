@@ -1,5 +1,5 @@
 describe('Account', function() {
-  var account = new Account;
+  var account = new Account();
   var today;
 
   beforeEach(function() {
@@ -14,23 +14,22 @@ describe('Account', function() {
   });
 
   describe('#deposit', function(){
-    it('can deposit money in an account', function() {
-      account.deposit(300);
-      expect(account.balance).toBe(300);
-    });
-
-    it('can add on value in the account when deposit money', function() {
-      account.deposit(100);
-      account.deposit(400);
-      expect(account.balance).toBe(500);
+    it('should return the updated balance', function() {
+      expect(account.deposit(300)).toEqual(300);
     });
   });
 
   describe('#withdraw', function(){
-    it('can withdraw money from an account', function() {
+    it('should return the updated balance', function() {
       account.deposit(1000);
-      account.withdraw(400);
-      expect(account.balance).toBe(600);
+      expect(account.withdraw(400)).toEqual(600);
+    });
+  });
+
+  describe('#statement', function() {
+    it('should return the account statement', function() {
+      account.deposit(1000);
+      expect(account.statement()).toContain('14/02/2020 || 1000.00 || || 1000.00')
     });
   });
 });
