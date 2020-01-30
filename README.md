@@ -69,13 +69,14 @@ See the example:
   - Added `Transaction` class to handle the amount of money; had simple functions 'add' 'remove'
   - Then I needed a `account` class so users can deposit or withdraw money; having balance and transactions as properites
   - Had a seperate class `DateFormat` for recording the date, also returning as DD/MM/YYYY
-  - Added `Statement` class for handling the 'display' function and 'log' function to push a single transaction to the properties
+  - Added `Statement` class for handling the 'display' function and call it in 'bankStatement' function
   
 - Next planning the feature tests to draw out how users interact with the code 
   
 - Testing approach
   - Using jasmine testing framework
   - After trying different tools for testing coverage (they might interfering with one another), I used Karma to see the test coverage
+  - Install ESLint as a linter
 
 
 ## Domain Modelling
@@ -93,6 +94,7 @@ See the example:
 |------- | ---------|
 |deposit | add the amount to balance<br>push date, credit and balance to the history|
 |withdraw | remove the amount from balance<br>push date, debit and balance to the history|
+|bankStatement | bank statement|
 
 **DateFormat class**
 
@@ -105,7 +107,6 @@ See the example:
 |Functions | Output|
 |------- | ---------|
 |display | bank statement|
-|log | push array to transactions|
 
 
 ## User stories
