@@ -1,7 +1,7 @@
 # Bank Tech Test
 
 
-### Requirements
+## Requirements
 
 - You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
 - Deposits, withdrawal.
@@ -24,7 +24,45 @@ date || credit || debit || balance
 ```
 
 
-### How to design the solution
+## To install and run the code:
+
+1. Fork the repo
+2. Run `$ npm install`
+3. Run `$ open SpecRunner.html` 
+4. Open the console (Ctrl+Option+J)
+
+
+## To interact with the code:
+
+1. Start with `var account = new Account;`
+2. To make a deposit `account.deposit(amount);` 
+3. To make a withdrawal `account.withdraw(amount);` 
+4. To print out the statement `account.bankStatement();`
+
+See the example:
+
+![console](img/console.png)
+
+
+## To run the test:
+
+1. Run `$ open SpecRunner.html` 
+2. Run `$ npm test` to see test coverage
+3. Run`$ open coverage_report/index.html` to check the coverage report
+4. Run `$ npx eslint src/` `$ npx eslint spec/` to check linter passed
+
+
+## Technologies Used:
+
+- Javascript
+- Jasmine
+
+## Tools:
+
+- Test coverage: Karma
+- Linter: ESLint
+
+## How to design the solution
 
 - Started with planning the unit specifications
   - At first I put 'deposit' and 'withdraw' functions in `Bank` class, then I realised I needed to break it down to more classes to handle different responsibilities
@@ -40,7 +78,7 @@ date || credit || debit || balance
   - After trying different tools for testing coverage (they might interfering with one another), I used Karma to see the test coverage
 
 
-### Domain Modelling
+## Domain Modelling
 
 **Transaction class**
 
@@ -70,8 +108,7 @@ date || credit || debit || balance
 |log | push array to transactions|
 
 
-### User stories
--------
+## User stories
 
 ```
 As a user
@@ -89,41 +126,13 @@ I would like to print out the statement
 ```
 
 
-### To install and run the code:
-
-1. Fork the repo
-2. Run `npm install`
-3. Run `open SpecRunner.html` 
-4. Open the console (Ctrl+Option+J)
 
 
-### To interact with the code:
-
-1. Start with `var account = new Account;`
-2. To make a deposit run `account.deposit(amount);` 
-3. To make a withdrawal run `account.withdraw(amount);` 
-4. To print out the statement run `account.transactions.display();`
-
-See the example:
-
-![console](img/console.png)
-
-
-
-### To run the test:
-
-1. Run `open SpecRunner.html` 
-2. Run `npm test`
-
-ESLint for code quality (linter)
-3. Run `npx eslint src/` `npx eslint spec/`
-
-Coverage report
-4. Run`open coverage_report/index.html`
-
-### Test results and test coverage
+## Test results and test coverage
 
 ![test results](img/results.png)
+
+![karma](img/karma.png)
 
 ![test coverage](img/coverage.png)
 
