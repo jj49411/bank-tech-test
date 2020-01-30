@@ -1,5 +1,5 @@
 function Account(transaction = new Transaction, date = new DateFormat, statement = new Statement(this.transactions)) {
-  this.balance = 0;
+  this._balance = 0;
   this.transactions = [];
   this.transaction = transaction;
   this.date = date;
@@ -7,15 +7,19 @@ function Account(transaction = new Transaction, date = new DateFormat, statement
 };
 
 Account.prototype.deposit = function(amount) {
-  this.balance += this.transaction.add(amount);
-  this.transactions.push([this.date.dateFormat(), amount, this.balance]);
-  return this.balance;
+  this._balance += this.transaction.add(amount);
+  this.transactions.push([this.date.dateFormat(), amount, this._balance]);
+  return this._balance;
 };
 
 Account.prototype.withdraw = function(amount) {
-  this.balance += this.transaction.remove(amount);
-  this.transactions.push([this.date.dateFormat(), -amount, this.balance]);  
-  return this.balance;
+  if(this._balance <= 0) {
+    return 'Error'
+  }else {
+  this._balance += this.transaction.remove(amount);
+  this.transactions.push([this.date.dateFormat(), -amount, this._balance]);  
+  return this._balance;
+  }
 };
 
 Account.prototype.bankStatement = function() {

@@ -28,6 +28,13 @@ describe('Account', function() {
       transaction.remove.and.returnValue(-100);  
       expect(account.withdraw(100)).toEqual(200);
     });
+
+    it('should return the error message when the balance is 0', function() {
+      transaction.remove.and.returnValue(-200);  
+      account.withdraw(200)
+      console.log(account)
+      expect(account.withdraw(200)).toEqual('Error');
+    });
   });
 
   describe('#statement', function() {

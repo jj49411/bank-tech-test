@@ -17,14 +17,12 @@ describe('Features', function() {
 
 
   it('user can deposit money in an account', function() {
-    account.deposit(amount);
-    expect(account.balance).toEqual(500)
+    expect(account.deposit(amount)).toEqual(500)
   });
 
   it('user can withdraw money in an account', function() {
     account.deposit(amount);
-    account.withdraw(amount);
-    expect(account.balance).toEqual(0)
+    expect(account.withdraw(amount)).toEqual(0)
   });
 
   it('should record the date of deposit', function() {
