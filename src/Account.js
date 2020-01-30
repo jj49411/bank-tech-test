@@ -1,26 +1,24 @@
-function Account() {
+function Account(transaction = new Transaction, date = new DateFormat, statement = new Statement(transaction)) {
   this.balance = 0;
   this.transactions = [];
+  this.transaction = transaction;
+  this.date = date;
+  this.statement = statement;
 };
 
 Account.prototype.deposit = function(amount) {
-  var transaction = new Transaction;
-  var date = new DateFormat;
-  this.balance += transaction.add(amount);
-  this.transactions.push([date.dateFormat(), amount, this.balance]);
+  this.balance += this.transaction.add(amount);
+  this.transactions.push([this.date.dateFormat(), amount, this.balance]);
   return this.balance;
 };
 
 Account.prototype.withdraw = function(amount) {
-  var transaction = new Transaction;
-  var date = new DateFormat; 
-  this.balance += transaction.remove(amount);
+  this.balance += this.transaction.remove(amount);
   this.transactions.push([date.dateFormat(), -amount, this.balance]);  
   return this.balance;
 };
 
-Account.prototype.statement = function() {
-  var statement = new Statement(this.transactions);
-  return statement.display();
+Account.prototype.bankStatement = function() {
+  return this.statement.display();
 };
 

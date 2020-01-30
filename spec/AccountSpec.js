@@ -1,12 +1,16 @@
 describe('Account', function() {
-  var account = new Account();
+  
+  transaction = jasmine.createSpyObj('transaction', ['add', 'remove']);
+  date = jasmine.createSpyObj('date', ['dateFormat']);
+  statement = jasmine.createSpyObj('statement', ['display']);
+  var account = new Account(transaction, date, statement);
   var today;
 
   beforeEach(function() {
-    account = new Account;
     today = new Date(2020,1,14);
     jasmine.clock().install();
     jasmine.clock().mockDate(today);  
+    transaction.add.and.returnValue(300);
   });
 
   afterEach(function() {
@@ -21,15 +25,16 @@ describe('Account', function() {
 
   describe('#withdraw', function(){
     it('should return the updated balance', function() {
-      account.deposit(1000);
-      expect(account.withdraw(400)).toEqual(600);
+      transaction.remove.and.returnValue(-100);  
+      expect(account.withdraw(100)).toEqual(200);
     });
   });
 
   describe('#statement', function() {
     it('should return the account statement', function() {
       account.deposit(1000);
-      expect(account.statement()).toContain('14/02/2020 || 1000.00 || || 1000.00')
+      statement.display.and.returnValue('14/02/2020 || 1000.00 || || 1000.00')
+      expect(account.bankStatement()).toContain('14/02/2020 || 1000.00 || || 1000.00')
     });
   });
 });

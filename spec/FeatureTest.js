@@ -29,17 +29,17 @@ describe('Features', function() {
 
   it('should record the date of deposit', function() {
     account.deposit(amount);
-    expect(account.statement()).toContain('14/02/2020')
+    expect(account.bankStatement()).toContain('14/02/2020')
   });
 
   it('user can print the bank statement after deposit', function() {
     account.deposit(amount);
-    expect(account.statement()).toContain('14/02/2020 || 500.00 || || 500.00')
+    expect(account.bankStatement()).toContain('14/02/2020 || 500.00 || || 500.00')
   });
 
   it('user can print the bank statement after withdraw', function() {
     account.deposit(amount);
     account.withdraw(200);
-    expect(account.statement()).toContain('14/02/2020 || || 200.00 || 300.00')
+    expect(account.bankStatement()).toContain('14/02/2020 || || 200.00 || 300.00')
   });
 });
