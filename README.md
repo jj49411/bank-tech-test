@@ -46,7 +46,7 @@ See the example:
 
 ## To run the test:
 
-1. Run `$ open SpecRunner.html` (`options -> untick 'run tests in random order'`)
+1. Run `$ open SpecRunner.html` (options -> untick `run tests in random order`)
 2. Run `$ npm test` to see test coverage
 3. Run`$ open coverage_report/index.html` to check the coverage report
 4. Run `$ npx eslint src/` `$ npx eslint spec/` to check linter passed
